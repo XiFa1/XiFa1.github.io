@@ -1,0 +1,51 @@
+/* ============================================
+   公告栏按钮样式
+   ============================================ */
+
+/* 定义一个类名叫 .announcement-btn */
+.announcement-btn {
+  cursor: pointer;      /* 鼠标放上去变小手 */
+  color: #49b1f5;       /* 默认文字颜色 (主题蓝) */
+  font-weight: bold;    /* 字体加粗 */
+  transition: all 0.3s; /* 让变色过程丝滑一点 */
+}
+
+/* 鼠标悬停时的效果 */
+.announcement-btn:hover {
+  color: #ff7242;       /* 鼠标放上去变成橙色 */
+  text-decoration: underline; /* 加个下划线 */
+}
+
+/* ============================================
+   深海极光流光背景 (CSS) - 保留这个
+   ============================================ */
+#page-header {
+  /* 基础底色：深海蓝 */
+  background-color: #001529;
+
+  /* 三个光斑模拟水下光照 */
+  background-image:
+    radial-gradient(at 0% 0%, rgba(79, 172, 254, 0.6) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(0, 168, 107, 0.6) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(0, 242, 254, 0.6) 0px, transparent 50%);
+
+  /* 放大背景以便流动 */
+  background-size: 100% 100% !important;
+
+  /* 复合动画：位置移动 + 颜色旋转 */
+  animation: moveBg 15s ease infinite alternate, colorShift 20s linear infinite !important;
+}
+
+/* 动画1：位置流动 */
+@keyframes moveBg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 动画2：颜色微调 */
+@keyframes colorShift {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(60deg); }
+  100% { filter: hue-rotate(0deg); }
+}
